@@ -1,11 +1,19 @@
 // ===== SEÇÃO 1: CARRINHO (laços de repetição) =====
 
 function calcularSubtotal(itens) {
-  // TODO
+  let subtotal = 0;
+  for (let item of itens) {
+      subtotal += item.preco * item.quantidade;
+  }
+  return subtotal;
 }
 
 function contarItens(itens) {
-  // TODO
+  let totalItens = 0;
+  for (let item of itens) {
+      totalItens += item.quantidade;
+  }
+  return totalItens;
 }
 
 
@@ -19,7 +27,8 @@ function aplicarCupom(subtotal, codigo) {
 // ===== SEÇÃO 3: CHECKOUT (integração) =====
 
 function finalizarCompra(itens, codigoCupom) {
-  return { subtotal: 0, desconto: 0, total: 0 }; // TODO: integrar carrinho e cupom
+  const subtotal = calcularSubtotal(itens);
+  return { subtotal: subtotal, desconto: 0, total: 0 }; // TODO: integrar carrinho e cupom
 }
 
 
