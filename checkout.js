@@ -19,7 +19,10 @@ function aplicarCupom(subtotal, codigo) {
 // ===== SEÇÃO 3: CHECKOUT (integração) =====
 
 function finalizarCompra(itens, codigoCupom) {
-  return { subtotal: 0, desconto: 0, total: 0 }; // TODO: integrar carrinho e cupom
+  const subtotal = calcularSubtotal(itens);
+  const desconto = aplicarCupom(subtotal, codigoCupom);
+  const total = subtotal - desconto;
+  return { subtotal: subtotal, desconto: desconto, total: total };
 }
 
 
